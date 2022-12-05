@@ -7,13 +7,46 @@
 
 import SwiftUI
 
+class User: ObservableObject {
+    //初期値をタイトル画面に設定
+    @Published var flag = 2
+}
+
 struct ContentView: View {
+    
+    @ObservedObject var isSwitchView = User()
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, 江津湖!")
+            
+            //プロローグ画面に遷移
+            if isSwitchView.flag == 1 {
+                prologView()
+                    .environmentObject(isSwitchView)
+            }
+            
+            //タイトル画面に遷移
+            else if isSwitchView.flag == 2 {
+                titleView()
+                    .environmentObject(isSwitchView)
+            }
+            //マップ画面に遷移
+            else if isSwitchView.flag == 3 {
+                mapView()
+                    .environmentObject(isSwitchView)
+            }
+            
+            //図鑑画面に遷移
+            else  if isSwitchView.flag == 4 {
+                fishAppearView()
+                    .environmentObject(isSwitchView)
+            }
+            
+            else  if isSwitchView.flag == 5 {
+                cameraView()
+                    .environmentObject(isSwitchView)
+            }
+            
         }
         .padding()
     }
