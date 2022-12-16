@@ -60,7 +60,7 @@ class VrScene: SCNScene {
         self.rootNode.addChildNode(cameraNode)
 
         // ループ動画プレイヤーの生成
-        let urlPath = Bundle.main.path(forResource: "IMG_20221207_101138_00_324", ofType: "jpg")!
+        let urlPath = Bundle.main.path(forResource: "2022-12-16 13.13.06", ofType: "MOV")!
         let asset = AVAsset(url: URL(fileURLWithPath: urlPath))
         let playerItem = AVPlayerItem(asset: asset)
         let queuePlayer = AVQueuePlayer(playerItem: playerItem)
