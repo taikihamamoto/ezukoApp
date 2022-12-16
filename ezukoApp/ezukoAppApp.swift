@@ -8,10 +8,19 @@
 import SwiftUI
 
 @main
+//struct ezukoAppApp: App {
+//    var body: some Scene {
+//        WindowGroup {
+//            quizView()
+//        }
+//    }
+//}
+
+//ここは自分のアプリ名
 struct ezukoAppApp: App {
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
-    }
+var body: some Scene {
+   WindowGroup {
+       quizView().environmentObject(EnvironmentData())
+   }
+}
 }
