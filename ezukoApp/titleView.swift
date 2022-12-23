@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct titleView: View {
+<<<<<<< HEAD
     
     @EnvironmentObject var isSwitchView: User
     
@@ -42,5 +43,15 @@ struct titleView: View {
         static var previews: some View {
             titleView()
         }
+=======
+    var body: some View {
+        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+    }
+}
+
+struct titleView_Previews: PreviewProvider {
+    static var previews: some View {
+        titleView()
+>>>>>>> 8144ddd48f19cdb50bbbad9337f0b0d47d04b06d
     }
 }

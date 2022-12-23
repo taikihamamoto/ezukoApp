@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct fishAppearView: View {
+<<<<<<< HEAD
     
     @EnvironmentObject var isSwitchView: User
     
@@ -19,6 +20,10 @@ struct fishAppearView: View {
         }
         
        
+=======
+    var body: some View {
+        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+>>>>>>> 8144ddd48f19cdb50bbbad9337f0b0d47d04b06d
     }
 }
 
