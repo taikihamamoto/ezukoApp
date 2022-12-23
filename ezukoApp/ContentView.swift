@@ -41,7 +41,7 @@ struct ContentView: View {
                 fishAppearView()
                     .environmentObject(isSwitchView)
             }
-            
+            //360度映像表示画面に遷移
             else  if isSwitchView.flag == 5 {
                 cameraView()
                     .environmentObject(isSwitchView)

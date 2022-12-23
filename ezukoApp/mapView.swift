@@ -12,42 +12,74 @@ import SwiftUI
 
 struct mapView: View {
     @EnvironmentObject var isSwitchView: User
-    //写真を配列に
-    let photo = [
-        "IMG_1099",
-        "IMG_1110",
-        "IMG_1147"
-    ]
+   
+    //@State var scale:CGFloat = 1.0
+    //@State var initialScale: CGFloat = 1.0
+    @GestureState var magnifyBy = 1.0
+
+
+    var magnification: some Gesture {
+            MagnificationGesture()
+                .updating($magnifyBy) { currentState, gestureState, transaction in
+                    gestureState = currentState
+                }
+        }
+
     
     
     var body: some View {
-        VStack {
-            Text("クイズマップ")
-            //タイトル画面に遷移
-            Button(action:{
-                isSwitchView.flag = 2
-            }){
-                Text("タイトルに戻る")
+        /*
+        let magnificationGesture = MagnificationGesture()
+                    .onChanged { scale = $0 * initialScale }
+                    .onEnded{ _ in initialScale = scale }
+         */
+        ScrollView([.vertical, .horizontal], showsIndicators: false) {
+            
+            
+            VStack {
+                Text("クイズマップ")
+                //タイトル画面に遷移
+                Button(action:{
+                    isSwitchView.flag = 2
+                }){
+                    Text("タイトルに戻る")
+                }
+                
+                ZStack {
+                    Image("map-image")
+                        .resizable()
+                        .scaleEffect(magnifyBy)
+                        .gesture(magnification)
+                        
+                    
+                }
+                
+                
+               
+                
+                //位置情報取得
+                Button("外来魚をさがす！") {
+                    /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
+                }
+                
+                //魚のアイコンを押すと、360度カメラの映像が表示される
+                Button(action:{
+                    isSwitchView.flag = 5
+                    
+                }){
+                    Text("オオクチバス")
+                }
+                
+                Button(action:{
+                    isSwitchView.flag = 5
+                }){
+                    Text("ブラックバス")
+                }
+                
+                
             }
-            
-            
-            //位置情報取得
-            Button("外来魚をさがす！") {
-                /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
-            }
-            
-            //魚のアイコンを押すと、360度カメラの映像が表示される
-            Button(action:{
-                isSwitchView.flag = 5
-            }){
-            Text("360度カメラ")
-            }
-            
-            
             
         }
-           
-       
     }
 }
 

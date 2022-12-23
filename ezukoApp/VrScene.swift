@@ -59,8 +59,17 @@ class VrScene: SCNScene {
         cameraNode.orientation = .init(0, 1, 0, 0)
         self.rootNode.addChildNode(cameraNode)
 
+        @Binding var fishNumber:Int 
+        //360度カメラで撮影したものを配列に挿入
+        
+        let photo360 = [
+            "IMG_9590",
+            "2022-12-16 13.13.06"
+        ]
+        
+        //@Binding var fishNumber
         // ループ動画プレイヤーの生成
-        let urlPath = Bundle.main.path(forResource: "2022-12-16 13.13.06", ofType: "MOV")!
+        let urlPath = Bundle.main.path(forResource: photo360[1], ofType: "MOV")!
         let asset = AVAsset(url: URL(fileURLWithPath: urlPath))
         let playerItem = AVPlayerItem(asset: asset)
         let queuePlayer = AVQueuePlayer(playerItem: playerItem)
